@@ -206,6 +206,9 @@
     zoxide
     awscli2
     aws-sam-cli
+    tidal-hifi
+    telegram
+    bat
     # inputs.zen-browser.packages.${pkgs.system}.default
   ];
 

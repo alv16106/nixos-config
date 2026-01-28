@@ -207,7 +207,7 @@
     awscli2
     aws-sam-cli
     tidal-hifi
-    telegram
+    telegram-desktop
     bat
     # inputs.zen-browser.packages.${pkgs.system}.default
   ];

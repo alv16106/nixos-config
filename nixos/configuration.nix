@@ -57,10 +57,6 @@
     };
   };
 
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -83,6 +79,9 @@
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+
+  # Enable auto-timezone
+  services.automatic-timezoned.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -121,6 +120,9 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+      kdePackages.kcalc
+      kubernetes-helm
+      kubectl
       zinit
       fzf
       bat
@@ -135,7 +137,7 @@
       zsh-powerlevel10k
       docker
       python313
-      inputs.zen-browser.packages.${pkgs.system}.default
+      inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 
@@ -209,7 +211,7 @@
     tidal-hifi
     telegram-desktop
     bat
-    # inputs.zen-browser.packages.${pkgs.system}.default
+    # inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   environment.variables.EDITOR = "code";

@@ -123,6 +123,7 @@
       kdePackages.kcalc
       kubernetes-helm
       kubectl
+      htop
       zinit
       fzf
       bat
@@ -216,6 +217,14 @@
 
   environment.variables.EDITOR = "code";
   environment.shells = with pkgs; [ zsh ];
+  environment.etc = {
+      "1password/custom_allowed_browsers" = {
+        text = ''
+          zen
+        '';
+        mode = "0755";
+      };
+    };
 
   xdg = {
     portal = {
